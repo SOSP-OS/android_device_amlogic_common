@@ -52,7 +52,7 @@ BOARD_DTB_OFFSET := 0x00e88000
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_NEEDS_DTBOIMAGE := true
 BOARD_KERNEL_BASE := 0x01078000
-BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0 otg_device=1
+BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0 root=/dev/mmcblk0p18 otg_device=1
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -64,6 +64,18 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-l
 TARGET_USES_64_BIT_BINDER := true
 
 BOARD_MKBOOTIMG_ARGS = --kernel_offset $(BOARD_KERNEL_OFFSET) --second_offset $(BOARD_SECOND_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET) --dtb_offset $(BOARD_DTB_OFFSET) --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+
+## Kernel
+TARGET_KERNEL_CONFIG := g12a_defconfig
+TARGET_KERNEL_SOURCE := kernel/amlogic/linux-4.9
+TARGET_KERNEL_VARIANT_CONFIG ?= g12a_variant_defconfig
+
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_ROOT_EXTRA_FOLDERS := bluetooth firmware
+BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_USES_UEFI := true
+
 
 ## LMKD
 TARGET_LMKD_STATS_LOG := true
