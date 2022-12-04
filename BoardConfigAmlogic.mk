@@ -55,7 +55,7 @@ BOARD_DTB_OFFSET := 0x00e88000
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_NEEDS_DTBOIMAGE := true
 BOARD_KERNEL_BASE := 0x01078000
-BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0 root=/dev/mmcblk0p18 otg_device=1
+BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0 root=/dev/mmcblk0p18 otg_device=1 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_PAGESIZE := 2048
