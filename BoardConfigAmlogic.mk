@@ -70,13 +70,6 @@ TARGET_KERNEL_CONFIG := g12a_defconfig
 TARGET_KERNEL_SOURCE := kernel/amlogic/linux-4.9
 TARGET_KERNEL_VARIANT_CONFIG ?= g12a_variant_defconfig
 
-# System as root
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := bluetooth firmware
-BOARD_SUPPRESS_SECURE_ERASE := true
-TARGET_USES_UEFI := true
-
-
 ## LMKD
 TARGET_LMKD_STATS_LOG := true
 
